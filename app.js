@@ -184,10 +184,8 @@ const abVariantOptions = {
   },
 };
 
-const startScreen = document.querySelector("#start-screen");
 const questionScreen = document.querySelector("#question-screen");
 const resultScreen = document.querySelector("#result-screen");
-const startButton = document.querySelector("#start-button");
 const progressCount = document.querySelector("#progress-count");
 const progressBar = document.querySelector(".progress-bar");
 const progressFill = document.querySelector("#progress-fill");
@@ -218,9 +216,6 @@ let currentResult = null;
 const answers = new Map();
 let hasTrackedFormStart = false;
 
-applyHeadlineVariant(headlineVariant);
-
-startButton.addEventListener("click", startDiagnosis);
 backButton.addEventListener("click", goBackQuestion);
 ctaButton.addEventListener("click", handleCtaClick);
 restartButton.addEventListener("click", restartDiagnosis);
@@ -241,6 +236,9 @@ consultForm.addEventListener("submit", (event) => {
   trackEvent("form_submitted", buildTrackingParams(currentResult));
   window.alert("送信ありがとうございました（デモ表示）。");
 });
+
+applyHeadlineVariant(headlineVariant);
+startDiagnosis();
 
 function startDiagnosis() {
   answers.clear();
@@ -374,11 +372,10 @@ function handleCtaClick() {
 }
 
 function restartDiagnosis() {
-  showScreen("start");
+  startDiagnosis();
 }
 
 function showScreen(target) {
-  startScreen.hidden = target !== "start";
   questionScreen.hidden = target !== "question";
   resultScreen.hidden = target !== "result";
 }
