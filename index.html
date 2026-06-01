@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>借金バレるリスク診断</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section id="question-screen" class="panel">
+        <p class="eyebrow">家族に知られる前に確認</p>
+        <h1>借金バレるリスク診断</h1>
+        <p class="lead">
+          郵便物・スマホ通知・カード明細・返済遅れなど、日常の中で家族に気づかれやすいポイントを30秒でチェックできます。
+        </p>
+        <p class="sub-lead">匿名OK・入力は5問だけ</p>
+
+        <div class="progress-wrap">
+          <p id="progress-count" class="progress-count">1/5</p>
+          <div class="progress-bar" role="progressbar" aria-valuemin="1" aria-valuemax="5" aria-valuenow="1">
+            <span id="progress-fill"></span>
+          </div>
+        </div>
+
+        <h2 id="question-title"></h2>
+        <div id="question-options" class="option-list"></div>
+
+        <div class="question-actions">
+          <button id="back-button" class="secondary-btn" type="button">戻る</button>
+        </div>
+      </section>
+
+      <section id="result-screen" class="panel" hidden>
+        <p id="risk-badge" class="risk-badge"></p>
+        <h2 id="result-title"></h2>
+        <div id="result-body" class="result-body"></div>
+
+        <section class="routes">
+          <h3>家族にバレてしまうパターン</h3>
+          <ul id="risk-route-list"></ul>
+          <p id="route-fallback" class="route-fallback" hidden>
+            現時点で目立つ経路は少なめですが、定期的に状況を見直しておくと安心です。
+          </p>
+        </section>
+
+        <section class="cta-card">
+          <p id="cta-lead"></p>
+          <button id="cta-button" class="primary-btn" type="button"></button>
+          <p id="high-risk-note" class="cta-note" hidden>
+            相談しただけで、すぐに手続きを決める必要はありません。
+          </p>
+        </section>
+
+        <section class="reassurance">
+          <h3>家族に知られず相談したい方へ</h3>
+          <ul>
+            <li>連絡方法は指定していただけます</li>
+            <li>郵送物ほぼゼロで対応できます</li>
+            <li>ご相談のみでOK、ご依頼はその後ゆっくりご検討ください</li>
+            <li>返済を続けた場合と、弁護士に手続きを依頼した場合の違いをお話できます</li>
+            <li>ご家族にお話いただく前に、状況を整理できます</li>
+          </ul>
+        </section>
+
+        <section id="consult-section" class="consult-form-wrap" hidden>
+          <h3>相談フォーム（デモ）</h3>
+          <p class="form-lead">手続きするか決める前に、まず相談方法だけ確認できます。</p>
+
+          <form id="consult-form">
+            <label for="contact-method">ご希望の連絡方法（任意）</label>
+            <input id="contact-method" name="contact_method" type="text" placeholder="例：メール希望" />
+
+            <label for="memo">今の不安・相談したいこと（任意）</label>
+            <textarea id="memo" name="memo" rows="3" placeholder="任意でご記入ください"></textarea>
+
+            <input type="hidden" name="total_score" />
+            <input type="hidden" name="risk_level" />
+            <input type="hidden" name="q1_answer" />
+            <input type="hidden" name="q2_answer" />
+            <input type="hidden" name="q3_answer" />
+            <input type="hidden" name="q4_answer" />
+            <input type="hidden" name="q5_answer" />
+            <input type="hidden" name="risk_routes" />
+            <input type="hidden" name="is_q1_high_risk" />
+            <input type="hidden" name="is_q5_high_risk" />
+
+            <button type="submit" class="primary-btn">無料で相談内容を送信する</button>
+          </form>
+        </section>
+
+        <p class="disclaimer">
+          本診断は一般的な目安です。実際に取れる方法は、借入状況・収入・滞納状況などによって異なります。詳しくは弁護士にご相談ください。
+        </p>
+        <p class="disclaimer">ご相談後、弁護士が状況を確認したうえで、対応可能な方法をご案内します。</p>
+
+        <button id="restart-button" class="secondary-btn" type="button">もう一度診断する</button>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
