@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Planner</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="app-header">
+        <h1>Task Planner</h1>
+        <p>Track your work in a simple web app.</p>
+      </header>
+
+      <section class="new-task">
+        <form id="task-form">
+          <label class="sr-only" for="task-input">New task</label>
+          <input id="task-input" type="text" maxlength="120" placeholder="Add a task..." required />
+          <button type="submit">Add</button>
+        </form>
+      </section>
+
+      <section class="filters" aria-label="Task filters">
+        <button type="button" class="filter-btn is-active" data-filter="all">All</button>
+        <button type="button" class="filter-btn" data-filter="active">Active</button>
+        <button type="button" class="filter-btn" data-filter="completed">Completed</button>
+      </section>
+
+      <section class="task-list-section">
+        <ul id="task-list" class="task-list"></ul>
+        <p id="empty-state" class="empty-state">No tasks yet. Add your first task.</p>
+      </section>
+
+      <footer class="app-footer">
+        <span id="task-stats">0 total, 0 completed</span>
+        <button id="clear-completed" type="button" class="secondary-btn">Clear completed</button>
+      </footer>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
