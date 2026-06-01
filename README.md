@@ -1,28 +1,28 @@
 # gold
 
-Simple browser-based task planner app.
+借金バレるリスク診断アプリ（静的Webアプリ）です。
 
-## Run locally
+## ローカル起動
 
-This app is static HTML/CSS/JS, so you can run it with any local web server.
-
-### Option 1: Python
+依存パッケージは不要です。任意の静的サーバーで起動できます。
 
 ```bash
 python3 -m http.server 8000
 ```
 
-Then open `http://localhost:8000`.
+ブラウザで `http://localhost:8000` を開いてください。
 
-### Option 2: VS Code Live Server
+## 実装内容
 
-Open `index.html` with Live Server if you already use that extension.
+- ファーストビュー（診断開始導線）
+- 5問・1問ずつ進む診断UI（進捗バー、戻るボタン付き）
+- 合計点 + 重要設問補正（Q1/Q5）によるリスク判定
+- 回答に応じたリスク経路表示
+- リスクレベル別の結果文・CTA表示
+- 相談フォーム連携用のhidden項目出力
+- 計測イベント（`diagnosis_start`, `question_answered`, `diagnosis_completed`, `cta_clicked`, `form_started`, `form_submitted`）
 
-## Features
+## 補足
 
-- Add tasks
-- Mark tasks as completed
-- Filter by `All`, `Active`, `Completed`
-- Delete tasks
-- Clear all completed tasks
-- Data is saved in browser `localStorage`
+- URLクエリで一部A/B表示の切り替えを試せます（例: `?ctaVariant=B&headlineVariant=C`）。
+- フォーム送信はデモ実装で、実運用時は外部フォーム/LP連携に置き換えてください。
